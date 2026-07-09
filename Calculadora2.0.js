@@ -1,17 +1,29 @@
 const pantalla = document.getElementById("pantalla");
 
 const botones = document.querySelectorAll(".numeros");
-const operadores = document.querySelectorAll(".operador")
-let operacion = ""
-let num1 = ""
-let num2 = ""
-let respuesta = ""
+const operadores = document.querySelectorAll(".operador");
+
+let operacion = "";
+let num1 = 0;
+let num2 = 0;
+let respuesta = 0;
+let acumulado = null;
+let num2AC = null;
+let escribiendo = false;
 
 botones.forEach(function (boton) {
 
     boton.addEventListener("click", function () {
-        pantalla.value = pantalla.value + boton.textContent;
+
+        if (!escribiendo && acumulado !== null) {
+            pantalla.value = "";
+        }
+
+        pantalla.value += boton.textContent;
+        escribiendo = true;
+
     });
+
 });
 
 document.addEventListener("keydown", function (teclado) {
@@ -24,22 +36,35 @@ document.addEventListener("keydown", function (teclado) {
 
     });
 
-    if (event.key === "Enter") {
+    if (teclado.key === "Enter") {
         document.getElementById("igual").click();
     }
 
-    if (event.key === "Backspace") {
+    if (teclado.key === "Backspace") {
         document.getElementById("delate").click();
     }
+
 });
 
 operadores.forEach(function (operador) {
 
     operador.addEventListener("click", function () {
-        num1 = parseFloat(pantalla.value)
-        operacion = operador.textContent
-        pantalla.value = ""
-    })
+
+        if (pantalla.value !== "") {
+
+            if (acumulado === null) {
+                num1 = parseFloat(pantalla.value);
+            } else {
+                num1 = acumulado;
+            }
+
+            pantalla.value = "";
+        }
+
+        operacion = operador.textContent;
+        escribiendo = false;
+
+    });
 
 });
 
@@ -56,34 +81,56 @@ document.addEventListener("keydown", function (teclado) {
 });
 
 document.getElementById("igual").addEventListener("click", function () {
-    num2 = parseFloat(pantalla.value)
+
+    if (escribiendo) {
+        num2 = parseFloat(pantalla.value);
+        num2AC = num2;
+    } else {
+        num2 = num2AC;
+    }
+
+    if (acumulado !== null) {
+        num1 = acumulado;
+    }
+
     switch (operacion) {
+
         case "+":
             respuesta = num1 + num2;
             break;
+
         case "-":
             respuesta = num1 - num2;
             break;
+
         case "*":
             respuesta = num1 * num2;
             break;
+
         case "/":
-            if (num2 === "0") {
+            if (num2 === 0) {
                 pantalla.value = "Valor no valido";
-                return
+                return;
             }
             respuesta = num1 / num2;
             break;
     }
 
-    pantalla.value = parseFloat(respuesta)
+    pantalla.value = respuesta;
+    acumulado = respuesta;
+    escribiendo = false;
 
 });
 
 document.getElementById("delate").addEventListener("click", function () {
-    let operacion = null
-    let num1 = null
-    let num2 = null
-    let respuesta = null
-    pantalla.value = null
-})
+
+    operacion = "";
+    num1 = 0;
+    num2 = 0;
+    respuesta = 0;
+    acumulado = null;
+    num2AC = null;
+    escribiendo = false;
+    pantalla.value = "";
+
+});
