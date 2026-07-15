@@ -1,11 +1,26 @@
 /*1. Escriba un programa que verifique si un número es positivo, negativo o cero e
 imprima el resultado.*/
 
-String = "DIGITE UN VALOR NUMERICO"
-console.log(String)
-prompt
+Number = 0;
+let datos = {};
 
+document.getElementById("Consult").addEventListener("click", function () {
 
+    Number = parseFloat(document.getElementById("Num").value);
+    datos.Valor_ingresado = Number;
+
+    if (Number === 0) {
+        datos.Resultado = "Es un cero"
+        document.getElementById("Respuesta").innerHTML = "Numero: " + datos.Valor_ingresado + "\n" + "Valor: " + datos.Resultado
+    } else {
+        if (Number < 0) {
+            datos.Resultado = "Es un numero negativo"
+            document.getElementById("Respuesta").innerHTML = "Numero: " + datos.Valor_ingresado + "\n" + "Valor: " + datos.Resultado
+        } else
+            datos.Resultado = "Es un numero positivo"
+            document.getElementById("Respuesta").innerHTML = "Numero: " + datos.Valor_ingresado + "\n" + "Valor: " + datos.Resultado
+    }
+})
 
 /*2. Cree un programa que determine si una persona es menor de edad, adulta o
 anciana según su edad, debe pedir el nombre e imprimir nombre y la categoría
