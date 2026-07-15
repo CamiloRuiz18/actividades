@@ -1,6 +1,29 @@
-#Cuerpo_Cal {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+
+    display: flex;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: rgb(203, 203, 203);
+}
+main{
     display: flex;
     flex-direction: column;
+    flex: 1;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#Cuerpo_Cal {
+    display: flex;
 
     width: 50%
 }
