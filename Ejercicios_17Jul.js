@@ -26,8 +26,24 @@ document.getElementById("Consult").addEventListener("click", function () {
 anciana según su edad, debe pedir el nombre e imprimir nombre y la categoría
 (ejemplo: “Mauricio eres adulto”).*/
 
+let Nombre = ""
+let Edad = 0
 
-
+document.getElementById("Consult2").addEventListener("click", function (){
+    Nombre = document.getElementById("Name").value;
+    Edad = document.getElementById("Edad").value;
+    if (Edad < 18){
+        document.getElementById("Respuesta2").innerHTML = Nombre + " es menor de edad"
+    } else {
+        if (Edad >= 18 && Edad < 55 ){
+            document.getElementById("Respuesta2").innerHTML = Nombre + " es edulto"
+        } else {
+            if (Edad >= 55){
+                document.getElementById("Respuesta2").innerHTML = Nombre + " es una persona de edad"
+            }
+        }
+    }
+})
 
 /*3. Utilice un bucle for para imprimir los valores de i desde 0 hasta 4.*/
 
