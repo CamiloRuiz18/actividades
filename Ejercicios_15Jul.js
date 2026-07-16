@@ -41,7 +41,7 @@ document.getElementById("Consult2").addEventListener("click", function () {
             Respuesta.innerHTML = Nombre + " es edulto"
         } else {
             if (Edad >= 55) {
-                Respuesta.innerHTML = Nombre + " es una persona de edad"
+                Respuesta.innerHTML = Nombre + " es una persona de edad avanzada"
             }
         }
     }
@@ -56,25 +56,63 @@ document.getElementById("Consult3").addEventListener("click", function () {
     for (let i = 0; i <= 4; i++) {
         Result += i + " "
     }
-    
+
     document.getElementById("Respuesta3").innerHTML = Result;
 
 })
 
 /*4. Utilice un bucle while para imprimir los valores de un contador desde 0 hasta 4.*/
 
+document.getElementById("Consult4").addEventListener("click", function (){
 
+    let contador = 0
+    let igual = 0;
+
+    while (contador < 4){
+        contador ++;
+        igual += " " + contador + " "
+    }
+
+    document.getElementById("Respuesta4").innerHTML = igual;
+})
 
 
 /*5. Cree un bucle for que se detenga cuando i sea igual a 3 usando la instrucción
 break.*/
 
+document.getElementById("Consult5").addEventListener("click", function () {
 
+    let Result = "";
+
+    for (let i = 0; i <= 4; i++) {
+        if (i ===3){
+            break
+        } 
+        Result += i + " "
+    }
+
+    document.getElementById("Respuesta5").innerHTML = Result;
+
+})
 
 
 /*6. Implemente un bucle for que salte la iteración cuando j sea igual a 2 usando la
 instrucción continue.*/
 
+document.getElementById("Consult6").addEventListener("click", function () {
+
+    let Result = "";
+    
+    for (let i = 0; i <= 5; i++) {
+        if (i ===2){
+            continue;
+        } 
+        Result += i + " "
+    }
+
+    document.getElementById("Respuesta6").innerHTML = Result;
+
+})
 
 
 
@@ -84,3 +122,16 @@ mostrar el nombre del mes asociado.
 Ejemplo:
 • Ingresa un número del 1 al 12 para saber el mes correspondiente: 9
 • El mes correspondiente al número 9 es: Septiembre*/
+
+let Meses = {
+    1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio", 7: "Julio",
+    8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre"
+}
+
+let Numero = 0;
+
+document.getElementById("numeroMes").addEventListener("click", function(){
+
+    
+
+})
