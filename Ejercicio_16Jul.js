@@ -1,13 +1,39 @@
 /*1. Escriba un programa que solicite al usuario el radio de un círculo y luego calcule
 y muestre el área y el perímetro del círculo, debe utilizar funciones.*/
 
+let Radio = 0;
+let Area = 0;
+let Perimetro = 0;
+let datos = {}
 
+function operaciones(){
+
+    Radio = parseFloat(document.getElementById("Radio").value);
+    Area = Math.PI * (Radio ** 2) + " Cm2"
+    Perimetro = 2 * Math.PI * Radio
+
+    datos.Area = Area
+    datos.Perimetro = Perimetro
+
+    document.getElementById("Respuesta").innerHTML = "Radio: " + Radio+"cm" + "\n" + "Area: " + datos.Area + "\n" + "Perimetro: " + datos.Perimetro
+
+}
+document.getElementById("Calcular").addEventListener("click", operaciones)
 
 
 /*2. Escriba un programa que utilice una función llamada calcular la cual toma dos
 parámetros: base y exponente. Esta función debe calcular y devolver el resultado
 de elevar la base al exponente.*/
 
+function calcualar (){
+
+    let Base = parseFloat(document.getElementById("Base").value)
+    let Exponente = parseFloat(document.getElementById("Exponente").value)
+    
+    let Respuesta = Base ** Exponente
+    document.getElementById("Respuesta2").innerHTML = "La respuesta es: " + Respuesta 
+}
+document.getElementById("Calcular2").addEventListener("click", calcualar)
 
 
 
