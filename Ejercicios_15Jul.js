@@ -18,7 +18,7 @@ document.getElementById("Consult").addEventListener("click", function () {
             document.getElementById("Respuesta").innerHTML = "Numero: " + datos.Valor_ingresado + "\n" + "Valor: " + datos.Resultado
         } else
             datos.Resultado = "Es un numero positivo"
-            document.getElementById("Respuesta").innerHTML = "Numero: " + datos.Valor_ingresado + "\n" + "Valor: " + datos.Resultado
+        document.getElementById("Respuesta").innerHTML = "Numero: " + datos.Valor_ingresado + "\n" + "Valor: " + datos.Resultado
     }
 })
 
@@ -29,17 +29,19 @@ anciana según su edad, debe pedir el nombre e imprimir nombre y la categoría
 let Nombre = ""
 let Edad = 0
 
-document.getElementById("Consult2").addEventListener("click", function (){
+document.getElementById("Consult2").addEventListener("click", function () {
     Nombre = document.getElementById("Name").value;
     Edad = document.getElementById("Edad").value;
-    if (Edad < 18){
-        document.getElementById("Respuesta2").innerHTML = Nombre + " es menor de edad"
+    Respuesta = document.getElementById("Respuesta2")
+
+    if (Edad < 18) {
+        Respuesta.innerHTML = Nombre + " es menor de edad"
     } else {
-        if (Edad >= 18 && Edad < 55 ){
-            document.getElementById("Respuesta2").innerHTML = Nombre + " es edulto"
+        if (Edad >= 18 && Edad < 55) {
+            Respuesta.innerHTML = Nombre + " es edulto"
         } else {
-            if (Edad >= 55){
-                document.getElementById("Respuesta2").innerHTML = Nombre + " es una persona de edad"
+            if (Edad >= 55) {
+                Respuesta.innerHTML = Nombre + " es una persona de edad"
             }
         }
     }
@@ -47,8 +49,17 @@ document.getElementById("Consult2").addEventListener("click", function (){
 
 /*3. Utilice un bucle for para imprimir los valores de i desde 0 hasta 4.*/
 
+document.getElementById("Consult3").addEventListener("click", function () {
 
+    let Result = "";
 
+    for (let i = 0; i <= 4; i++) {
+        Result += i + " "
+    }
+    
+    document.getElementById("Respuesta3").innerHTML = Result;
+
+})
 
 /*4. Utilice un bucle while para imprimir los valores de un contador desde 0 hasta 4.*/
 
