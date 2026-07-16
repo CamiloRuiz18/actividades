@@ -63,13 +63,13 @@ document.getElementById("Consult3").addEventListener("click", function () {
 
 /*4. Utilice un bucle while para imprimir los valores de un contador desde 0 hasta 4.*/
 
-document.getElementById("Consult4").addEventListener("click", function (){
+document.getElementById("Consult4").addEventListener("click", function () {
 
     let contador = 0
     let igual = 0;
 
-    while (contador < 4){
-        contador ++;
+    while (contador < 4) {
+        contador++;
         igual += " " + contador + " "
     }
 
@@ -85,9 +85,9 @@ document.getElementById("Consult5").addEventListener("click", function () {
     let Result = "";
 
     for (let i = 0; i <= 4; i++) {
-        if (i ===3){
+        if (i === 3) {
             break
-        } 
+        }
         Result += i + " "
     }
 
@@ -102,11 +102,11 @@ instrucción continue.*/
 document.getElementById("Consult6").addEventListener("click", function () {
 
     let Result = "";
-    
+
     for (let i = 0; i <= 5; i++) {
-        if (i ===2){
+        if (i === 2) {
             continue;
-        } 
+        }
         Result += i + " "
     }
 
@@ -128,10 +128,15 @@ let Meses = {
     8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre"
 }
 
-let Numero = 0;
+let Numero = ""
 
-document.getElementById("numeroMes").addEventListener("click", function(){
+document.getElementById("Consult7").addEventListener("click", function () {
 
-    
+    Numero = parseFloat(document.getElementById("numeroMes").value);
+    if (Numero >= 1 && Numero <= 12) {
+        document.getElementById("Respuesta7").innerHTML = "El mes correspondiente es: " + Meses[Numero];
+    } else {
+        document.getElementById("Respuesta7").innerHTML = "Valor no valido"
+    }
 
 })
