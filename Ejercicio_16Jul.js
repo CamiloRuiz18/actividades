@@ -177,7 +177,7 @@ function cuatro_4() {
 
 
 /*• Imprimir un patrón de asteriscos en forma de triángulo, con altura 9.*/
-
+//en este punto si tome gran parte de la IA porque no di en como hacerlo
 function cuatro_5() {
 
     let resultado = "";
