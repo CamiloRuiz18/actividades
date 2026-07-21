@@ -7,11 +7,10 @@ body{
     min-height: 100vh;
 
     display: flex;
+    align-items: center;
     flex-direction: column;
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: rgb(130, 130, 130);
-    background-attachment: fixed;
 }
 /*main*/
 main{
@@ -22,22 +21,41 @@ main{
     width: max-content;
     justify-content: center;
 
-    margin: auto;
-}
-main > * {
-    display: flex;
-
-    width: max-content;
     margin-block: 5px;
-    align-items: left;
+}
+main > *{
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+
+    padding: 25px;
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
+}
+#contenedor > *{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+}
+#contenedor h1{
+    padding-bottom:10px;
+    font-size: 20px;
+    color: rgb(241, 106, 4);
 }
 #recuadro{
     width: 100%;
     gap: 30px;
     padding-inline: 10px;
 }
+#recuadro button{
+    color: white;
+    width: 50%;
+    background-color: rgb(241, 106, 4);
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+}
 #elementos{
-    display: flex;
     flex-direction: column;
 
     width: 100%;
@@ -45,13 +63,15 @@ main > * {
 }
 #recuadro input{
     width: 80%;
+    outline: none;
+    padding-left: 5px;
 }
 #elementos div{
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: right;
-    gap: 30px;
+    gap: 10px;
 }
 .opciones {
     display: flex;
