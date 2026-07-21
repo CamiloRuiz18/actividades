@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: rgb(130, 130, 130);
+    background-attachment: fixed;
+}
+/*main*/
+main{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    width: max-content;
+    justify-content: center;
+
+    margin: auto;
+}
+main > * {
+    display: flex;
+
+    width: max-content;
+    margin-block: 5px;
+    align-items: left;
+}
+#elementos,
+#recuadro{
+    width: 100%;
+    padding-inline: 10px;
+}
+#recuadro input{
+    width: 100%;
+}
+#elementos div{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: right;
+    gap: 30px;
+}
+.opciones {
+    display: flex;
+    flex-direction: row;
+}
