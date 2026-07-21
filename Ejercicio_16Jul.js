@@ -51,8 +51,9 @@ document.getElementById("ingresar").addEventListener("click", function () {
     if (comparar > numeroMayor) {
         numeroMayor = comparar
     }
-
+    
     contador++;
+    document.getElementById("list").value = "";
 
     if (contador === 10) {
 
