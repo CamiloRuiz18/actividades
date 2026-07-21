@@ -33,6 +33,7 @@ main > * {
 }
 #recuadro{
     width: 100%;
+    gap: 30px;
     padding-inline: 10px;
 }
 #elementos{
@@ -43,7 +44,7 @@ main > * {
     padding-inline: 10px;
 }
 #recuadro input{
-    width: 100%;
+    width: 80%;
 }
 #elementos div{
     display: flex;
@@ -55,4 +56,15 @@ main > * {
 .opciones {
     display: flex;
     flex-direction: row;
+}
+.colorSelect{
+    color: black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.colorSelect.activo{
+    color: green;
+}
+#iconoEliminar{
+    cursor: pointer;
 }

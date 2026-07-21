@@ -1,7 +1,7 @@
 function agregar() {
 
     const iconoSelect = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="black">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
         <circle cx="12" cy="12" r="11"/>
         <path d="M7.5 12.5L10.5 15.5L16.5 9.5"
           stroke="white"
@@ -22,10 +22,15 @@ function agregar() {
 
     opciones.className = "opciones"
 
-    let svgSelect = document.createElement("svg")
+    let svgSelect = document.createElement("span")
+    svgSelect.classList.add("colorSelect")
     svgSelect.innerHTML = iconoSelect
+    svgSelect.addEventListener("click", function(){
+        svgSelect.classList.toggle("activo")
+    })
 
-    let svgEliminar = document.createElement("svg")
+    let svgEliminar = document.createElement("span")
+    svgEliminar.id = "iconoEliminar"
     svgEliminar.innerHTML = inconoEliminar
 
     opciones.appendChild(svgEliminar)
@@ -43,6 +48,7 @@ function agregar() {
     svgEliminar.addEventListener("click", function () {
         primerContenedor.remove();
     })
+
     document.getElementById("elementos").appendChild(primerContenedor)
 }
 
