@@ -9,6 +9,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color:rgb(202, 224, 255);
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -17,17 +18,16 @@ main{
     display: flex;
     flex-direction: column;
     flex: 1;
-
-    width: max-content;
+    
     justify-content: center;
-
-    margin-block: 5px;
 }
 main > *{
-    display: flex;
+    
     flex-direction: column;
-    min-height: 200px;
+    min-height: 225px;
+    min-width: 380px;
 
+    background-color: white;
     padding: 25px;
     box-shadow: 0 0 5px black;
     border-radius: 10px;
@@ -35,47 +35,43 @@ main > *{
 #contenedor > *{
     display: flex;
     padding: 5px;
-    justify-content: center;
 }
 #contenedor h1{
+    justify-content: center;
     padding-bottom:10px;
     font-size: 20px;
     color: rgb(241, 106, 4);
 }
 #recuadro{
-    width: 100%;
-    gap: 30px;
-    padding-inline: 10px;
+    gap: 10px;
 }
 #recuadro button{
     color: white;
-    width: 50%;
+    width: 40%;
+    height: 25px;
     background-color: rgb(241, 106, 4);
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     font-size: 15px;
 }
 #elementos{
     flex-direction: column;
-
-    width: 100%;
-    padding-inline: 10px;
 }
 #recuadro input{
-    width: 80%;
+    width: 100%;
     outline: none;
     padding-left: 5px;
+}
+#elementos > * {
+    border-bottom: 1px solid rgb(210, 210, 210);
 }
 #elementos div{
     display: flex;
     width: 100%;
-    flex-direction: row;
+    padding: 4px;
+    align-items: center;
     justify-content: right;
     gap: 10px;
-}
-.opciones {
-    display: flex;
-    flex-direction: row;
 }
 .colorSelect{
     color: black;
