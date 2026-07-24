@@ -11,6 +11,7 @@ body {
 
     height: 100vh;
     overflow: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 aside {
@@ -33,7 +34,7 @@ main {
 
     min-height: 0;
 }
-.productosCajon div{
+.productosCajon > div{
     display: grid;
     
     grid-auto-flow: column;
@@ -41,40 +42,39 @@ main {
     overflow-x: auto;
 
     min-height: 400px;
-}
-article{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+    padding: 100px;
+    gap: 10%;
 }
 /*productos*/
 .productos{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows:
+    300px
     auto
-    70%
-    50px
-    50px;
+    auto
+    auto;
     align-items: center;
-    justify-items: center;
 }
-.productos h1{
-    grid-column: 1/3;
+.productos > *{
+    padding: 5px;
 }
 .productos img{
+    display: flex;
     grid-column: 1/3;
-    width: 60%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-.productos p{
+span,
+.descripcion{
     grid-column: 1/3;
 }
-span{
-    grid-column: 1/2;
-}
-button{
-    grid-column: 2/3;
+.precio{
+    grid-column: 1/3;
+
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 /**/
