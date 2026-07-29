@@ -84,7 +84,8 @@ main {
     overflow-x: auto;
     grid-template-columns: repeat(3, 1fr);
 
-    padding: 30px;
+    padding: 60px;
+    
     gap: 10px;
 }
 #principal h4{
@@ -160,14 +161,11 @@ main {
 /*productos*/
 
 .productos {
-    display: grid;
-
-    grid-template-rows:
-        300px auto auto auto;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 .productos img:hover{
-    transform: scale(1.2);
+    transform: scale(0.95);
 }
 
 .productos>* {
@@ -175,13 +173,13 @@ main {
 }
 
 .productos img {
-    grid-column: 1/3;
-    width: 80%;
+    
+    width: 100%;
     height: 80%;
     border-radius: 20px;
 
     transition: transform .3s ease,
-                box-shadow .3s ease;
+                box-shadow .3s ease; /*se encarga de darle la animacion suave*/
 }
 
 span,
