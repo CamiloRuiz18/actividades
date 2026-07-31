@@ -13,3 +13,20 @@ categorias.forEach(categoria => {
     });
 
 });
+
+const productos = document.querySelectorAll(".productos");
+
+productos.forEach(producto => {
+
+    const imagen = producto.querySelector(".descripcionProductos");
+    const precio = producto.querySelector(".precio");
+
+    imagen.addEventListener("mouseenter", () => {
+        precio.classList.add("activo");
+    });
+
+    imagen.addEventListener("mouseleave", () => {
+        precio.classList.remove("activo");
+    });
+
+});
