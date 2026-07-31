@@ -18,15 +18,18 @@ const productos = document.querySelectorAll(".productos");
 
 productos.forEach(producto => {
 
-    const imagen = producto.querySelector(".descripcionProductos");
+    const contenedorDescripcion = producto.querySelector(".descripcionProductos");
     const precio = producto.querySelector(".precio");
+    const descripcion = producto.querySelector(".descripcion")
 
-    imagen.addEventListener("mouseenter", () => {
+    contenedorDescripcion.addEventListener("mouseenter", () => {
         precio.classList.add("activo");
+        descripcion.classList.add("oculto")
     });
 
-    imagen.addEventListener("mouseleave", () => {
+    contenedorDescripcion.addEventListener("mouseleave", () => {
         precio.classList.remove("activo");
+        descripcion.classList.remove("oculto")
     });
 
 });

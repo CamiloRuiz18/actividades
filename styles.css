@@ -172,6 +172,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 5px;
+    overflow: hidden;
 }
 .productos {
     display: flex;
@@ -185,15 +186,20 @@ main {
 }
 
 .productos img {
-    width: 100%;
-    height: 80%;
     border-radius: 20px;
 
     transition: transform .3s ease,
         box-shadow .3s ease;
     /*se encarga de darle la animacion suave*/
 }
-
+.descripcion > *{
+    display: flex;
+    padding-block: 5px;
+}
+.descripcion.oculto{
+    max-height: 0;
+    padding: 0;
+}
 .precio {
     max-height: 0;
     padding: 0;
@@ -209,10 +215,4 @@ main {
 
     transition: max-height 1s ease;
 }
-
-span,
-.descripcion {
-    grid-column: 1/3;
-}
-
 /**/
