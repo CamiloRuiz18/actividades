@@ -43,26 +43,40 @@ fetch("http://localhost:8080/productos")
     productos.forEach(producto => {
 
         principal.innerHTML += `
-            <div class="productos">
+            <article class="productos">
 
                 <img src="${producto.imagen}" alt="${producto.nombre}">
 
                 <div class="descripcionProductos">
-
+                    <h4>Lo más nuevo</h4>
+                    <p>${producto.nombre}</p>
                     <div class="descripcion">
-                        <h3>${producto.nombre}</h3>
-                        <p>${producto.descripcion}</p>
+                        <span>${producto.descripcion}</span>
+                        <span>${producto.color}</span>
                     </div>
 
-                    <div class="precio">
-                        <h2>$${producto.precio}</h2>
+                    <div class="precio">$${producto.precio}
+                    <p class="unidades">Unidades disponibles</p>
                     </div>
 
                 </div>
 
-            </div>
+            </article>
         `;
-
+        /*  <article class="productos">
+                    <img src="imagenes/principal5.webp" alt="imagenProducto">
+                        <div class="descripcionProductos">
+                            <h4>Lo más nuevo</h4>
+                            <p>Nike Ave Edge</p>
+                            <div class="descripcion">
+                                <span>Calzado para hombre</span>
+                                <span>1 color</span>
+                            </div>
+                            <div class="precio">$ 84,00
+                                <p class="unidades" >Unidades disponibles</p>
+                            </div>
+                        </div>
+                </article>*/
     });
 
 });
