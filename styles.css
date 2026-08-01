@@ -168,12 +168,13 @@ main {
 }
 
 /*productos*/
-.descripcionProductos >*{
+.descripcionProductos>* {
     display: flex;
     flex-direction: column;
     padding: 5px;
     overflow: hidden;
 }
+
 .productos {
     display: flex;
     overflow: hidden;
@@ -192,28 +193,36 @@ main {
         box-shadow .3s ease;
     /*se encarga de darle la animacion suave*/
 }
-.descripcion > *{
+
+.descripcion>* {
     display: flex;
     padding-block: 5px;
 }
-.descripcion.oculto{
+
+.descripcion.oculto {
     max-height: 0;
     padding: 0;
 }
-.precio {
 
-    max-height: 0;
-    padding: 0;
+.descripcion {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height .4s ease, padding .4s ease;
+}
+
+.precio {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    max-height:0;
+    overflow:hidden;
+    padding:0;
+    transition:max-height .4s ease, padding .4s ease;
 }
 
 .precio.activo {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-between;
-    max-height: 500px;
+    max-height: 80px;
     padding: 5px;
-
-    transition: max-height 1s ease;
 }
+
 /**/
