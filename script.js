@@ -33,3 +33,36 @@ productos.forEach(producto => {
     });
 
 });
+
+fetch("http://localhost:8080/productos")
+.then(respuesta => respuesta.json())
+.then(productos => {
+
+    const principal = document.getElementById("principal");
+
+    productos.forEach(producto => {
+
+        principal.innerHTML += `
+            <div class="productos">
+
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+
+                <div class="descripcionProductos">
+
+                    <div class="descripcion">
+                        <h3>${producto.nombre}</h3>
+                        <p>${producto.descripcion}</p>
+                    </div>
+
+                    <div class="precio">
+                        <h2>$${producto.precio}</h2>
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+    });
+
+});
