@@ -1,83 +1,158 @@
-/*filtros*/
-const categorias = document.querySelectorAll(".contenedorFiltros > div");
+const principal = document.querySelector("#principal");
 
-categorias.forEach(categoria => {
+let productos = [];
 
-    const titulo = categoria.querySelector(".cajon");
-    const filtros = categoria.querySelector(".filtros");
-    const flecha = categoria.querySelector(".cajon");
+// Obtener productos
 
-    titulo.addEventListener("click", () => {
-        filtros.classList.toggle("oculto");
-        flecha.classList.toggle("rotar");
-    });
+fetch("http://localhost:8080/productos")
+.then(respuesta => respuesta.json())
+.then(datos => {
+
+    productos = datos;
+
+    mostrarProductos(productos);
 
 });
 
-fetch("http://localhost:8080/productos")
-    .then(respuesta => respuesta.json())
-    .then(productos => {
+// Mostrar productos
 
-        const principal = document.getElementById("principal");
+function mostrarProductos(lista){
 
+    principal.innerHTML = "";
+
+    lista.forEach(producto => {
+
+        const precio = Number(producto.precio).toLocaleString("es-CO");
+
+        principal.innerHTML += `
+
+            <article class="productos">
+
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+
+                <div class="descripcionProductos">
+
+                    <h4>Lo más nuevo</h4>
+
+                    <p>${producto.nombre}</p>
+
+                    <div class="descripcion">
+
+                        <span>${producto.descripcion}</span>
+
+                        <span>${producto.color}</span>
+
+                    </div>
+
+                    <div class="precio">
+
+                        $ ${precio}
+
+                        <p class="unidades">
+
+                            ${producto.disponibles} Unidades disponibles
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    });
+
+}
+
+// Eventos de filtros
+
+document.querySelectorAll("input[type=checkbox]").forEach(caja=>{
+
+    caja.addEventListener("change", filtrarProductos);
+
+});
+
+function filtrarProductos(){
+
+    let resultado = productos;
+
+    if(document.getElementById("hombre").checked){
+
+        resultado = resultado.filter(producto =>
+            producto.categoria.includes("Hombre")
+        );
+
+    }
+
+    if(document.getElementById("mujer").checked){
+
+        resultado = resultado.filter(producto =>
+            producto.categoria.includes("Mujer")
+        );
+
+    }
+
+    if(document.getElementById("unisex").checked){
+
+        resultado = resultado.filter(producto =>
+            producto.categoria.includes("Unisex")
+        );
+
+    }
+
+    if(document.getElementById("guayos").checked){
+
+        resultado = resultado.filter(producto =>
+            producto.categoria.includes("Guayos")
+        );
+
+    }
+
+    if(document.getElementById("sandalias").checked){
+
+        resultado = resultado.filter(producto =>
+            producto.categoria.includes("Sandalias")
+        );
+
+    }
+
+    if(document.getElementById("tenis").checked){
+
+        resultado = resultado.filter(producto =>
+            producto.categoria.includes("Tenis")
+        );
+
+    }
+
+
+
+    mostrarProductos(resultado);
+    activarAnimacion()
+
+}
+
+    function activarAnimacion() {
+        const productos = document.querySelectorAll(".productos");
+    
         productos.forEach(producto => {
-
-            const precio = new Intl.NumberFormat('es-CO', {
-                style: 'currency',
-                currency: 'COP',
-                minimumFractionDigits: 0
-            }).format(producto.precio);
-
-            principal.innerHTML += `
-        <article class="productos">
-
-            <img src="${producto.imagen}" alt="${producto.nombre}">
-
-            <div class="descripcionProductos">
-                <h4>Lo más nuevo</h4>
-
-                <p>${producto.nombre}</p>
-
-                <div class="descripcion">
-                    <span>${producto.descripcion}</span>
-                    <span>${producto.color}</span>
-                </div>
-
-                <div class="precio">
-                    ${precio}
-                    <p class="unidades">Unidades disponibles</p>
-                </div>
-
-            </div>
-
-        </article>
-    `;
+    
+            const contenedorDescripcion = producto.querySelector(".descripcionProductos");
+            const precio = producto.querySelector(".precio");
+            const descripcion = producto.querySelector(".descripcion")
+    
+            contenedorDescripcion.addEventListener("mouseenter", () => {
+                precio.classList.add("activo");
+                descripcion.classList.add("oculto")
+            });
+    
+            contenedorDescripcion.addEventListener("mouseleave", () => {
+                precio.classList.remove("activo");
+                descripcion.classList.remove("oculto")
+            });
+    
         });
-
-        activarAnimacion();
-
-    });
-
-function activarAnimacion() {
-    const productos = document.querySelectorAll(".productos");
-
-    productos.forEach(producto => {
-
-        const contenedorDescripcion = producto.querySelector(".descripcionProductos");
-        const precio = producto.querySelector(".precio");
-        const descripcion = producto.querySelector(".descripcion")
-
-        contenedorDescripcion.addEventListener("mouseenter", () => {
-            precio.classList.add("activo");
-            descripcion.classList.add("oculto")
-        });
-
-        contenedorDescripcion.addEventListener("mouseleave", () => {
-            precio.classList.remove("activo");
-            descripcion.classList.remove("oculto")
-        });
-
-    });
 }
 /*  <article class="productos">
             <img src="imagenes/principal5.webp" alt="imagenProducto">

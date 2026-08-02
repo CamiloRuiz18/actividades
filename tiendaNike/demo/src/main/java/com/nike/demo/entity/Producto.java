@@ -20,6 +20,7 @@ public class Producto {
     private String categoria;
     private String color;
     private Double precio;
+    private Integer disponibles;
 
     public Integer getId_producto() {
         return id_producto;
@@ -67,6 +68,14 @@ public class Producto {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Integer getDisponibles() {
+        return disponibles;
+    }
+
+    public void setDisponibles(Integer disponibles) {
+        this.disponibles = disponibles;
     }
 
     public Double getPrecio() {

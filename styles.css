@@ -198,7 +198,10 @@ main {
     display: flex;
     padding-block: 5px;
 }
-
+.descripcion :nth-child(1){
+    font-size: 14px;
+    color: rgb(177, 177, 177);
+}
 .descripcion.oculto {
     max-height: 0;
     padding: 0;
