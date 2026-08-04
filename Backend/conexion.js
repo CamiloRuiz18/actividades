@@ -7,6 +7,7 @@ const conexion = mysql.createConnection({
     password:"Camiloruiz123@",
     database:"Nike"
 })
+module.exports = conexion;
 // Prueba la conexión
 conexion.connect((error) => {
   if (error) {

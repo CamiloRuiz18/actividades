@@ -4,7 +4,7 @@ let productos = [];
 
 // Obtener productos
 
-fetch("http://localhost:8080/productos")
+fetch("http://localhost:3000/productos")
 .then(respuesta => respuesta.json())
 .then(datos => {
 
@@ -63,6 +63,8 @@ function mostrarProductos(lista){
         `;
 
     });
+
+    activarAnimacion()
 
 }
 
@@ -129,7 +131,6 @@ function filtrarProductos(){
 
 
     mostrarProductos(resultado);
-    activarAnimacion()
 
 }
 
