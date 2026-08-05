@@ -135,6 +135,7 @@ function filtrarProductos(){
 }
 
     function activarAnimacion() {
+        
         const productos = document.querySelectorAll(".productos");
     
         productos.forEach(producto => {
